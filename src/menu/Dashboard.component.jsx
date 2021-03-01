@@ -12,7 +12,7 @@ const Dashboard = () => {
                     <Header/>
                     <main>
                          <div className="contenedor-tareas">
-                           
+                           <h1>Dashboard</h1>
                          </div>
                     </main>
                 </div>

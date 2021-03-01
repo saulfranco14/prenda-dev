@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import MenuItem from './MenuItem.component';
 
 const Sidebar = () => {
     return ( 
@@ -8,6 +9,7 @@ const Sidebar = () => {
                     Módulos 
                 </h1>
                 <div className="proyectos">
+                    <MenuItem/>
                 </div>
             </aside>
         </Fragment>
