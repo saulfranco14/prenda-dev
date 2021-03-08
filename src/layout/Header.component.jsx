@@ -1,6 +1,17 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react';
+import authContext          from '../context/auth/authContext';
 
 const Header = () => {
+
+    const authToken                                 = useContext( authContext );
+    const { user, getUserByAuth, logoutUser  }      = authToken;
+
+    useEffect(() => {
+        getUserByAuth();
+        
+        // eslint-disable-next-line
+    }, [])
+
     return ( 
         <Fragment>
              <header className="app-header">
@@ -15,7 +26,7 @@ const Header = () => {
                 <nav className="nav-principal">
                     <button
                         className="btn btn-blank cerrar-sesion"
-                        // onClick = { () => logoutUser() }
+                        onClick = { () => logoutUser() }
                     >
                         Cerrar Sesión
                     </button>
