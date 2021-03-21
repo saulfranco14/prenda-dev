@@ -3,6 +3,8 @@ import authtContext             from './authContext';
 import authReducer              from './authReducer';
 import clientAxios              from '../../config/axios';
 import authToken                from '../../config/auth';
+import Swal                     from 'sweetalert2';
+
 
 import{
     REGISTER_SUCCESS,
@@ -27,18 +29,16 @@ const AuthState = ( props ) => {
 
     // REGISTER USER
     const registerUser = async ( user ) =>{
+        console.log(user);
         try {
             const response = await clientAxios.post( 'api/users', user );
-           
             dispatch({
                 type    : REGISTER_SUCCESS,
                 payload : response.data.token
             })
-            // Data User
-            getUserByAuth();
-
+          
         } catch (error) {
-
+            console.log(error);
             const alert = {
                 msg         : error.response.data.msg,
                 categoria   : 'alerta-error'
@@ -80,14 +80,27 @@ const AuthState = ( props ) => {
             getUserByAuth();
 
         } catch (error) {
-            const alert = {
-                msg         : error.response.data.msg,
-                categoria   : 'alerta-error'
+
+            
+            if (typeof error.response === 'undefined') {
+                Swal.fire({
+                    position            : 'center',
+                    icon                : 'error',
+                    title               : 'Tenemos problemas para iniciar sesión.',
+                    width               : '40rem',
+                    showConfirmButton   : true
+                });
+            }else{
+                const alert = {
+                    msg         : error.response.data.msg,
+                    categoria   : 'alerta-error'
+                }
+                dispatch({
+                    type    : LOGIN_ERROR,
+                    payload : alert
+                })
             }
-            dispatch({
-                type    : LOGIN_ERROR,
-                payload : alert
-            })
+            
         }
     }
     

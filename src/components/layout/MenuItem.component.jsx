@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import {
     TitleMenuItem
-} from '../styles/MenuStyles.styles';
+} from '../../styles/MenuStyles.styles';
 
 const MenuItem = () => {
     return ( 
@@ -13,7 +13,7 @@ const MenuItem = () => {
                     Excel 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/usuarios'} >
                 <TitleMenuItem> 
                     {"  "}
                     Usuarios 

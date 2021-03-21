@@ -1,7 +1,7 @@
-import React, { Fragment,useContext, useEffect } from 'react';
-import Header from '../layout/Header.component';
-import Sidebar from '../layout/Sidebar.component';
-import authContext          from '../context/auth/authContext';
+import React, { Fragment,useContext, useEffect }    from 'react';
+import Header                                       from '../layout/Header.component';
+import Sidebar                                      from '../layout/Sidebar.component';
+import authContext                                  from '../../context/auth/authContext';
 
 
 const Dashboard = () => {

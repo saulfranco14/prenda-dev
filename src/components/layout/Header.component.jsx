@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import authContext          from '../context/auth/authContext';
+import authContext          from '../../context/auth/authContext';
 
 const Header = () => {
 
@@ -15,14 +15,11 @@ const Header = () => {
     return ( 
         <Fragment>
              <header className="app-header">
-                {/* {
+                {
                     user ? 
-                    { user.auth.nombre }    
-                */}
-
-                        <p className="nombre-usuario">Hola Saúl Franco<span></span></p>
-                    {/* : null
-                } */}
+                        <p className="nombre-usuario">Hola:{" "}<span>{ user.auth.nombre }</span></p>
+                    : null
+                }
                 <nav className="nav-principal">
                     <button
                         className="btn btn-blank cerrar-sesion"

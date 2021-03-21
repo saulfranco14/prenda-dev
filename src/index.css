@@ -5,6 +5,8 @@
   --gris3: #1a202d;
   --negro: #000000;
   --rojo: #d9534f;
+  --success : #5cb85c;
+  --naranja : #f0ad4e;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
 }
@@ -375,4 +377,148 @@ aside  {
 .alerta-error {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
+}
+
+
+/* Data Grid */
+
+.tableCenter{
+  display: flex;
+  margin-left: 5%;
+  height: 550px;
+  width: 90%;
+}
+
+/* Manipulate DATA GRID */
+.MuiDataGrid-root .MuiDataGrid-cellLeft {
+  font-size: 15px;
+}
+
+.MuiDataGrid-root .MuiDataGrid-colCellTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+.MuiTablePagination-caption {
+  font-size: 14px !important;
+}
+
+/** BOTONES **/
+
+.buttonCreate{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  font-family: var(--headingFont);
+  padding: 1rem;
+  font-size: 1.4;
+  font-weight: 400;
+  border-radius: .5rem;
+  border: none;
+  transition: background-color .3s ease;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn-primario {
+  background-color: var(--gris2);
+  color: var(--blanco);
+}
+.btn-editar {
+  background-color: var(--naranja);
+  color: var(--blanco);
+  font-size: 12px;
+  margin: 10px auto;
+  width: 100%;
+}
+.btn-eliminar {
+  background-color: var(--rojo);
+  color: var(--blanco);
+  font-size: 12px;
+  margin: 10px auto;
+  width: 100%;
+}
+.btn-success {
+  background-color: var(--success);
+  color: var(--blanco);
+  font-size: 12px;
+  margin: 10px auto;
+  width: 100%;
+}
+.btn-primario:hover {
+  background: var(--gris3);
+}
+.btn-secundario {
+  background-color: var(--gris1);
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.btn-create {
+  display: block;
+  width: 20%;
+}
+.btn-submit:hover {
+  background-color: var(--gris2);
+}
+.btn-blank {
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: transparent;
+}
+.marginButton{
+  margin-top: 4rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* FORM */
+
+.form-usuario {
+  background-color: var(--gris2);
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-create {
+  background-color: var(--gris1);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor-form-create {
+  padding: 5rem 3rem;
+  width: 95%;
+  background-color: var(--blanco);
+  border-radius: 1rem;
+}
+.marginLabel{
+  margin-left: 2rem;
+}
+.selectForm{
+  border: 1px solid #e1e1e1;
+  padding: 1rem;
+  flex: 1;
+}
+.roleMargin{
+  margin-left: 20px;
+}
+
+
+/* Sweet Alert */
+.swal2-popup {
+  height: 25rem !important;
+  font-size: 1.2rem !important;
+}
+.swal2-title {
+  font-size: 2.5rem !important;
+}
+.swal2-styled.swal2-confirm {
+  font-size: 1.5rem !important;
 }
