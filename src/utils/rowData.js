@@ -3,9 +3,8 @@ import React from 'react';
 let active;
 
 export const columnsUser = [
-    { field: 'id',                headerName: 'ID',               width: 70 },
-    { field: 'nombre',            headerName: 'Nombre',           width: 300 },
-    { field: 'telefono_celular',  headerName: 'Telefono Celular', width: 200 },
+    { field: 'nombre',            headerName: 'Nombre',             width: 300 },
+    { field: 'email',             headerName: 'Email',              width: 300 },
     {
       field: "",
       headerName: "Editar",
@@ -16,7 +15,7 @@ export const columnsUser = [
       return  <button
                     type        ="button"
                     className   ="btn btn-editar"
-                    onClick     = { (  )=> handleClick(`${ params.getValue('id') }`) }
+                    onClick     = { (  )=> handleClick(`${ params.getValue('_id') }`) }
                 >
                     Editar
                 </button>;

@@ -1,10 +1,12 @@
-import React, { Fragment,useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../layout/Header.component';
-import Sidebar from '../layout/Sidebar.component';
-import authContext          from '../../context/auth/authContext';
-import { DataGrid } from '@material-ui/data-grid';
-import { columnsUser } from '../../utils/rowData';
+import React, { Fragment,useContext, useEffect }    from 'react';
+import { Link }                                     from 'react-router-dom';
+import { DataGrid }                                 from '@material-ui/data-grid';
+import { columnsUser }                              from '../../utils/rowData';
+import Header                                       from '../layout/Header.component';
+import Sidebar                                      from '../layout/Sidebar.component';
+import authContext                                  from '../../context/auth/authContext';
+import contactContext                               from '../../context/contact/contactContext';
+
 
 
 const rowsUser = [
@@ -27,14 +29,24 @@ const rowsUser = [
 
 
 const Users = () => {
+
+    // Context Auth
     const authToken             = useContext( authContext );
     const { getUserByAuth  }    = authToken;
 
+    // Context Contact
+    const context                       = useContext(contactContext);
+    const { contacts, viewContacts }    = context;
+
+
     useEffect(() => {
         getUserByAuth();
-
+        viewContacts();
         // eslint-disable-next-line
     }, [])
+
+    console.log(contacts);
+
     return ( 
         <Fragment>
             <div className="contenedor-app">
@@ -55,7 +67,7 @@ const Users = () => {
                             </div>
                         </div>
                         <div className="tableCenter" >
-                            <DataGrid rows={rowsUser} columns={columnsUser} pageSize={15} />
+                            <DataGrid rows={contacts} columns={columnsUser} pageSize={15} />
                         </div>
                     </main>
                 </div>

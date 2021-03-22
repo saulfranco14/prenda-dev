@@ -5,15 +5,15 @@ import contactContext                                       from '../../context/
 import AlertContext                                         from '../../context/alert/alertContext';
 
 
-const CreateUser = (  ) => {
+const CreateUser = ( props ) => {
 
     // Context Alert
     const alertContext          = useContext(AlertContext);
     const { alert, viewAlert }  = alertContext;
 
     // Context Contact
-    const context                              = useContext(contactContext);
-    const { insertContact }     = context;
+    const context                           = useContext(contactContext);
+    const { insertContact, viewContacts }   = context;
 
     // User
     const [ contact, setContact ] = useState({
@@ -54,7 +54,8 @@ const CreateUser = (  ) => {
             sexo        : '',
             role        : '', 
         })
-        
+        viewContacts();
+        props.history.push('/usuarios');
     }
 
 
