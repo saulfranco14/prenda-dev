@@ -9,6 +9,8 @@ import Login                                      from '../src/components/auth/L
 import Dashboard                                  from '../src/components/menu/Dashboard.component';
 import Users                                      from '../src/components/users/Users.components';
 import CreateUser                                 from '../src/components/users/CreateUser.component';
+import EditUser                                   from '../src/components/users/EditUser.component';
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
                 <Route exact path="/" component={Login} />
                 <RoutePrivate exact path="/dashboard" component={Dashboard} />
                 <RoutePrivate exact path="/usuarios" component={Users} />
+                <RoutePrivate exact path="/edit-user/:id" component={EditUser} />
                 <RoutePrivate exact path="/create-user" component={CreateUser} />
               </Switch>
             </Router>

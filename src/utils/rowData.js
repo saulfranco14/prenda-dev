@@ -12,13 +12,12 @@ export const columnsUser = [
       width: 100,
       disableClickEventBubbling: true,
       renderCell: ( params ) => {
-      return  <button
-                    type        ="button"
-                    className   ="btn btn-editar"
-                    onClick     = { (  )=> handleClick(`${ params.getValue('_id') }`) }
+      return  <a
+                    className   ="btn btn-editarUser"
+                    href        = { `edit-user/${ params.getValue('_id') } `}
                 >
                     Editar
-                </button>;
+                </a>;
     }
   },
   {
@@ -36,6 +35,7 @@ export const columnsUser = [
 
 
 
-const handleClick = (id) =>{
+const handleClick = (id , e ) =>{
+
     console.log(id);
 }
