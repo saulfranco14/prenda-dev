@@ -38,7 +38,6 @@ const ContactState = props => {
     const viewContacts = async ( ) =>{
         try {
             const response = await clientAxios.get('/api/contacts');
-            console.log(response);
             dispatch({
                 type    : GET_CONTACT,
                 payload : response.data.contacts

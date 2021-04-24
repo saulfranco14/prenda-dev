@@ -8,26 +8,6 @@ import authContext                                  from '../../context/auth/aut
 import contactContext                               from '../../context/contact/contactContext';
 
 
-
-const rowsUser = [
-    { id: 1, nombre : "Saúl Mauricio Franco Rentería", edad:27, days:"3 por semana", grupo:"Amarillo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 2, nombre : "Miguel", edad:29, days:"3 por semana", grupo:"Azul", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 3, nombre : "Omar Gutierrez", edad:24, days:"3 por semana", grupo:"Morado", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 4, nombre : "Virginia Ziga", edad:40, days:"3 por semana", grupo:"Azul", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 5, nombre : "Iván Franco", edad:31, days:"3 por semana", grupo:"Morado", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 6, nombre : "Roberto", edad:35, days:"3 por semana", grupo:"Rojo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 7, nombre : "Sandra Villanueva", edad:28, days:"3 por semana", grupo:"Rojo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 8, nombre : "Yan Angel", edad:29, days:"3 por semana", grupo:"Azul", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : false},
-    { id: 9, nombre : "Fernando Rentería", edad:35, days:"3 por semana", grupo:"Amarillo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 10, nombre : "Esther", edad:29, days:"3 por semana", grupo:"Rojo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 11, nombre : "Selene", edad:24, days:"3 por semana", grupo:"Café", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : false},
-    { id: 12, nombre : "Gerardo Gaona", edad:32, days:"3 por semana", grupo:"Café", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : false},
-    { id: 13, nombre : "Lorena Leyva", edad:30, days:"3 por semana", grupo:"Amarillo", direccion: "Xochitenco calle union", telefono_celular:"5534932203", active : true},
-    { id: 14, nombre : "Valentín Alvarez", edad:36, days:"3 por semana", grupo:"Amarillo", direccion: "Xochitenco calle union", telefono_celular:"5534932203" , active : false},
-];
-
-
-
 const Users = () => {
 
     // Context Auth
@@ -44,8 +24,6 @@ const Users = () => {
         viewContacts();
         // eslint-disable-next-line
     }, [])
-
-    console.log(contacts);
 
     return ( 
         <Fragment>
