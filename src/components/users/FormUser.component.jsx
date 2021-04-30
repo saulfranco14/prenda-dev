@@ -2,7 +2,7 @@ import React, { Fragment, useState, useContext } from 'react'
 import AlertContext                                         from '../../context/alert/alertContext';
 
 
-const FormUser = () => {
+const FormUser = ( dataInfo ) => {
 
     // Context Alert
     const alertContext          = useContext(AlertContext);
@@ -54,7 +54,7 @@ const FormUser = () => {
                                             name="nombre"
                                             placeholder="Escribe el nombre"
                                             autoComplete="off"
-                                            value={ nombre }
+                                            value={ dataInfo.dataInfo.nombre }
                                             onChange={onChange}
                                         />
 
@@ -69,7 +69,7 @@ const FormUser = () => {
                                             name="email"
                                             placeholder="Escribe su email, lo ocupará para inicio de sesión"
                                             autoComplete="off"
-                                            value={ email }
+                                            value={ dataInfo.dataInfo.email }
                                             onChange={onChange}
                                         />
                                         <label className="marginLabel" htmlFor="password">Password</label>
@@ -79,8 +79,8 @@ const FormUser = () => {
                                             name="password"
                                             placeholder="Escribe su password para inicio de sesión"
                                             autoComplete="off"
-                                            value={ password }
                                             onChange={onChange}
+                                            disabled
                                         />
                                     </div>
                                     <div className="campo-form">
@@ -88,7 +88,7 @@ const FormUser = () => {
                                         <select 
                                             name="sexo"
                                             className="selectForm" 
-                                            value={sexo}
+                                            value={dataInfo.dataInfo.sexo}
                                             onChange={onChange}
                                         >
                                             <option value="">Selecciona un sexo</option>
@@ -99,7 +99,7 @@ const FormUser = () => {
                                         <select 
                                             name="role"
                                             className="selectForm"
-                                            value={role}
+                                            value={dataInfo.dataInfo.role}
                                             onChange={onChange}
                                         >   
                                             <option value="">Selecciona un rol</option>

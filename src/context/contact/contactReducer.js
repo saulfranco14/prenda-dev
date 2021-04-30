@@ -63,10 +63,6 @@ switch( action.type ) {
         }
 
     case EDIT_CONTACT :
-        console.log("******idContact*****")
-        console.log(state.contacts)
-        console.log(action)
-        console.log("******idContact*****")
         return{
             ...state,
             editContactForm : state.contacts.filter( contact =>

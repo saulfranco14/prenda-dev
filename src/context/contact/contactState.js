@@ -25,7 +25,7 @@ const ContactState = props => {
         contacts            : [],
         contactVisualize    : null,
         msg                 : null,
-        editContactForm     : null
+        editContactForm     : {}
     }
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -142,6 +142,7 @@ const ContactState = props => {
                 contactVisualize    : state.contactVisualize,
                 formNewContact      : state.formNewContact,
                 msg                 : state.msg,
+                editContactForm     : state.editContactForm,
                 viewForm,
                 viewContacts,
                 insertContact,

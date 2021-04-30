@@ -9,17 +9,16 @@ import FormUser                                     from '../../components/users
 
 
 
-const Users = () => {
+const Users = (  ) => {
     
     // Context Auth
     const authToken             = useContext( authContext );
     const { getUserByAuth  }    = authToken;
 
     // Context Contact
-    const context                       = useContext(contactContext);
-    const { contacts, viewContacts }    = context;
-
-
+    const context                                                       = useContext(contactContext);
+    const { contacts, viewContacts, editContact, editContactForm }      = context;
+    
     useEffect(() => {
         getUserByAuth();
         viewContacts();
@@ -33,40 +32,43 @@ const Users = () => {
         { field: 'nombre',            headerName: 'Nombre',             width: 300 },
         { field: 'email',             headerName: 'Email',              width: 300 },
         {
-          field: "",
-          headerName: "Editar",
-          sortable: false,
-          width: 100,
-          disableClickEventBubbling: true,
+          field                     : "",
+          headerName                : "Editar",
+          sortable                  : false,
+          width                     : 100,
+          disableClickEventBubbling : true,
+
           renderCell: ( params ) => {
-          return  <button
+
+          return    <button
                         className   ="btn btn-editarUser"
-                        onClick     = { ()=> handleClick() }
+                        onClick     = { ()=> clickEdit( params.getValue('_id') ) }
                         // href        = { `edit-user/${ params.getValue('_id') } `}
                     >
                         Editar
                     </button>;
         }
-      },
-      {
-        field: "activo",
-        headerName: "Activo",
-        sortable: false,
-        width: 150,
-        disableClickEventBubbling: true,
-        renderCell: ( params ) => {
-          active = params.getValue('active') === true ? <button type ="button" className   ="btn btn-success"> Activo </button> : <button type ="button" className   ="btn btn-eliminar"> Desactivo </button> ;
-          return  active
-        }
-      },
+        },
+        {
+            field                       : "activo",
+            headerName                  : "Activo",
+            sortable                    : false,
+            width                       : 150,
+            disableClickEventBubbling   : true,
+            renderCell: ( params ) => {
+            active = params.getValue('active') === true ? <button type ="button" className   ="btn btn-success"> Activo </button> : <button type ="button" className   ="btn btn-eliminar"> Desactivo </button> ;
+            return  active
+            }
+        },
     ];
 
-    const handleClick = ( ) => {
+    const clickEdit = ( idContact ) => {
         setEdit(true)
+        editContact(idContact);
         return edit;
     }
 
-    const clickGrid = () => {
+    const clickReverse = () => {
         setEdit(false)
         return edit;
     }
@@ -85,7 +87,7 @@ const Users = () => {
                                     edit ?
                                         <button
                                             className="btn btn-reverse"
-                                            onClick={ ()=>clickGrid() }
+                                            onClick={ ()=>clickReverse() }
                                         >
                                             Regresar
                                         </button>
@@ -104,7 +106,7 @@ const Users = () => {
                         {
                             edit ?
                             <Fragment>
-                               <FormUser/>
+                               <FormUser dataInfo={ editContactForm[0] }/>
                             </Fragment>
                             : 
                             <div className="tableCenter" >
