@@ -11,6 +11,7 @@ import {
     VISUALIZE_CONTACT,
     DESACTIVE_CONTACT,
     ERROR_CONTACT,
+    EDIT_CONTACT,
 } from '../../types';
 
 
@@ -24,6 +25,7 @@ const ContactState = props => {
         contacts            : [],
         contactVisualize    : null,
         msg                 : null,
+        editContactForm     : null
     }
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -123,6 +125,14 @@ const ContactState = props => {
         
     }
 
+    // editTask 
+    const editContact = ( idContact ) => {
+        dispatch({
+            type    : EDIT_CONTACT,
+            payload : idContact
+        })
+    }
+
 
     return(
         <contactContext.Provider
@@ -138,6 +148,7 @@ const ContactState = props => {
                 viewFormError,
                 viewFormContact,
                 desactiveContact,
+                editContact,
             }}
         >
             {props.children}

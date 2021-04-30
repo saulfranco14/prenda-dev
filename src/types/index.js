@@ -18,3 +18,4 @@ export const VALIDATE_FORM          = 'VALIDATE_FORM';
 export const VISUALIZE_CONTACT      = 'VISUALIZE_CONTACT';
 export const DESACTIVE_CONTACT      = 'DESACTIVE_CONTACT';
 export const ERROR_CONTACT          = 'ERROR_CONTACT';
+export const EDIT_CONTACT           = 'EDIT_CONTACT';

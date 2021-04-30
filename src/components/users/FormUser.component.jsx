@@ -1,33 +1,38 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import Sidebar                                              from '../layout/Sidebar.component';
-import Header                                               from '../layout/Header.component';
-import contactContext                               from '../../context/contact/contactContext';
+import React, { Fragment, useState, useContext } from 'react'
+import AlertContext                                         from '../../context/alert/alertContext';
 
-const EditUser = ( props ) => {
 
-    
-    let idContact = props.match.params.id;
+const FormUser = () => {
 
-    // Context Contact
-    const context                       = useContext(contactContext);
-    const { editContact }               = context;
+    // Context Alert
+    const alertContext          = useContext(AlertContext);
+    const { alert, viewAlert }  = alertContext;
 
-    useEffect(() => {
-        editContact(idContact);
-    }, [])
+     // User
+     const [ contact, setContact ] = useState({
+        email       : '',
+        password    : '',
+        nombre      : '',
+        sexo        : '',
+        role        : '',   
+    });
+
+    const { nombre, email, password, sexo, role } = contact;
+
+    const onChange = ( e ) => {
+        setContact({
+            ...contact,
+            [e.target.name] : e.target.value
+        })
+    }
 
     return ( 
         <Fragment>
-            <div className="contenedor-app">
-                <Sidebar/>
+           <div className="contenedor-app">
                 <div className="seccion-principal">
-                    <Header/>
                     <main>
-                        <div className="contenedor-tareas">
-                            <h1>Editar Usuario</h1>
-                        </div>
                             <div className="form-create">
-                                {/* {
+                                {
                                     alert ? 
                                     (
                                         <div className={ `alerta ${alert.category}` }>
@@ -36,10 +41,10 @@ const EditUser = ( props ) => {
                                     )
                                     :
                                     null
-                                } */}
+                                }
                                 <div className="contenedor-form-create sombra-dark">
                                 <form
-                                    //  onSubmit={ onSubmit }
+                                    
                                 >
                                     <div className="campo-form">
                                         <label htmlFor="nombre">Nombre Completo</label>
@@ -49,8 +54,8 @@ const EditUser = ( props ) => {
                                             name="nombre"
                                             placeholder="Escribe el nombre"
                                             autoComplete="off"
-                                            // value={ nombre }
-                                            // onChange={onChange}
+                                            value={ nombre }
+                                            onChange={onChange}
                                         />
 
                                       
@@ -64,8 +69,8 @@ const EditUser = ( props ) => {
                                             name="email"
                                             placeholder="Escribe su email, lo ocupará para inicio de sesión"
                                             autoComplete="off"
-                                            // value={ email }
-                                            // onChange={onChange}
+                                            value={ email }
+                                            onChange={onChange}
                                         />
                                         <label className="marginLabel" htmlFor="password">Password</label>
                                         <input 
@@ -74,8 +79,8 @@ const EditUser = ( props ) => {
                                             name="password"
                                             placeholder="Escribe su password para inicio de sesión"
                                             autoComplete="off"
-                                            // value={ password }
-                                            // onChange={onChange}
+                                            value={ password }
+                                            onChange={onChange}
                                         />
                                     </div>
                                     <div className="campo-form">
@@ -83,8 +88,8 @@ const EditUser = ( props ) => {
                                         <select 
                                             name="sexo"
                                             className="selectForm" 
-                                            // value={sexo}
-                                            // onChange={onChange}
+                                            value={sexo}
+                                            onChange={onChange}
                                         >
                                             <option value="">Selecciona un sexo</option>
                                             <option value="masculino">Masculino</option>
@@ -94,8 +99,8 @@ const EditUser = ( props ) => {
                                         <select 
                                             name="role"
                                             className="selectForm"
-                                            // value={role}
-                                            // onChange={onChange}
+                                            value={role}
+                                            onChange={onChange}
                                         >   
                                             <option value="">Selecciona un rol</option>
                                             <option value="1">Administrador</option>
@@ -121,4 +126,4 @@ const EditUser = ( props ) => {
      );
 }
  
-export default EditUser;
+export default FormUser;

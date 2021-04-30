@@ -6,6 +6,7 @@ import {
     VISUALIZE_CONTACT,
     DESACTIVE_CONTACT,
     ERROR_CONTACT,
+    EDIT_CONTACT,
 } from '../../types';
 
 export default ( state, action ) => {
@@ -60,6 +61,19 @@ switch( action.type ) {
             ...state,
             msg : action.payload,
         }
+
+    case EDIT_CONTACT :
+        console.log("******idContact*****")
+        console.log(state.contacts)
+        console.log(action)
+        console.log("******idContact*****")
+        return{
+            ...state,
+            editContactForm : state.contacts.filter( contact =>
+                contact._id === action.payload  
+            ),
+        }
+
     default : 
         return state;
 }

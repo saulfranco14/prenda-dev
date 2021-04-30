@@ -417,7 +417,7 @@ aside  {
 
 .buttonCreate{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between
 }
 
 .btn {
@@ -435,6 +435,16 @@ aside  {
 .btn-primario {
   background-color: var(--gris2);
   color: var(--blanco);
+  margin-left: 10px;
+}
+.btnCreate{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-reverse {
+  background-color: var(--rojo);
+  color: var(--blanco);
+  margin-left: 10px;
 }
 .btn-editar {
   background-color: var(--naranja);
@@ -457,9 +467,9 @@ aside  {
   margin: 10px auto;
   width: 100%;
 }
-.btn-primario:hover {
+/* .btn-primario:hover {
   background: var(--gris3);
-}
+} */
 .btn-secundario {
   background-color: var(--gris1);
 }
