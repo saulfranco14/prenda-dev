@@ -7,7 +7,7 @@ import {
 const MenuItem = () => {
     return ( 
         <Fragment>
-             <Link to={'/users'} >
+             <Link to={'/excel'}  >
                 <TitleMenuItem> 
                     {"  "}
                     Excel 
@@ -19,37 +19,37 @@ const MenuItem = () => {
                     Usuarios 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/prendas'} >
                 <TitleMenuItem> 
                     {"  "}
                     Prendas 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/cortes'} >
                 <TitleMenuItem> 
                     {"  "}
                     Cortes 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/modelos'} >
                 <TitleMenuItem> 
                     {"  "}
                     Modelos 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/tallas'} >
                 <TitleMenuItem> 
                     {"  "}
                     Tallas 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/colores'} >
                 <TitleMenuItem> 
                     {"  "}
                     Colores 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/users'} >
+            <Link to={'/clientes'} >
                 <TitleMenuItem> 
                     {"  "}
                     Clientes 

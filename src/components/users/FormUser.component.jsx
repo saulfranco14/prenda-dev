@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useContext } from 'react'
-import AlertContext                                         from '../../context/alert/alertContext';
+import React, { Fragment, useState, useContext }    from 'react'
+import AlertContext                                 from '../../context/alert/alertContext';
+import contactContext                               from '../../context/contact/contactContext';
 
 
 const FormUser = ( dataInfo ) => {
@@ -8,8 +9,12 @@ const FormUser = ( dataInfo ) => {
     const alertContext          = useContext(AlertContext);
     const { alert, viewAlert }  = alertContext;
 
-     // User
-     const [ contact, setContact ] = useState({
+    // Context Contact
+    const context               = useContext(contactContext);
+    const { editContactForm }   = context;
+
+    // User
+    const [ contact, setContact ] = useState({
         email       : '',
         password    : '',
         nombre      : '',
@@ -17,13 +22,26 @@ const FormUser = ( dataInfo ) => {
         role        : '',   
     });
 
-    const { nombre, email, password, sexo, role } = contact;
+    const { nombre, email, password, sexo, role } = editContactForm[0];
+    
 
     const onChange = ( e ) => {
+        console.log(contact)
+        console.log(e.target.value)
         setContact({
             ...contact,
             [e.target.name] : e.target.value
         })
+    }
+
+    // Update Contact
+    const onSubmit = ( e ) => {
+        e.preventDefault();
+
+        if( nombre.trim() === ''){
+            viewAlert( 'Todos los campos son obligatorios', 'alerta-error' ) ;
+            return;
+        }
     }
 
     return ( 
@@ -44,7 +62,7 @@ const FormUser = ( dataInfo ) => {
                                 }
                                 <div className="contenedor-form-create sombra-dark">
                                 <form
-                                    
+                                    onSubmit={ onSubmit }
                                 >
                                     <div className="campo-form">
                                         <label htmlFor="nombre">Nombre Completo</label>
@@ -54,12 +72,9 @@ const FormUser = ( dataInfo ) => {
                                             name="nombre"
                                             placeholder="Escribe el nombre"
                                             autoComplete="off"
-                                            value={ dataInfo.dataInfo.nombre }
+                                            value={ nombre }
                                             onChange={onChange}
                                         />
-
-                                      
-                                        
                                     </div>
                                     <div className="campo-form">
                                         <label htmlFor="email">Email</label>
@@ -69,7 +84,7 @@ const FormUser = ( dataInfo ) => {
                                             name="email"
                                             placeholder="Escribe su email, lo ocupará para inicio de sesión"
                                             autoComplete="off"
-                                            value={ dataInfo.dataInfo.email }
+                                            value={ editContactForm[0].email }
                                             onChange={onChange}
                                         />
                                         <label className="marginLabel" htmlFor="password">Password</label>
@@ -88,7 +103,7 @@ const FormUser = ( dataInfo ) => {
                                         <select 
                                             name="sexo"
                                             className="selectForm" 
-                                            value={dataInfo.dataInfo.sexo}
+                                            value={ editContactForm[0].sexo }
                                             onChange={onChange}
                                         >
                                             <option value="">Selecciona un sexo</option>
@@ -99,7 +114,7 @@ const FormUser = ( dataInfo ) => {
                                         <select 
                                             name="role"
                                             className="selectForm"
-                                            value={dataInfo.dataInfo.role}
+                                            value={ editContactForm[0].role }
                                             onChange={onChange}
                                         >   
                                             <option value="">Selecciona un rol</option>

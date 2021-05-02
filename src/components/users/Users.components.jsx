@@ -106,7 +106,7 @@ const Users = (  ) => {
                         {
                             edit ?
                             <Fragment>
-                               <FormUser dataInfo={ editContactForm[0] }/>
+                               <FormUser/>
                             </Fragment>
                             : 
                             <div className="tableCenter" >
