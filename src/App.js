@@ -17,6 +17,7 @@ import Modelo                                     from '../src/components/modelo
 import Talla                                      from '../src/components/tallas/Talla.component';
 import Color                                      from '../src/components/colores/Color.component';
 import Cliente                                    from '../src/components/clientes/Cliente.component';
+import Operacion                                  from '../src/components/operaciones/Operacion.component';
 
 
 const token = localStorage.getItem('token');
@@ -42,6 +43,7 @@ function App() {
                 <RoutePrivate exact path="/tallas"        component={Talla} />
                 <RoutePrivate exact path="/colores"       component={Color} />
                 <RoutePrivate exact path="/clientes"      component={Cliente} />
+                <RoutePrivate exact path="/operaciones"   component={Operacion} />
               </Switch>
             </Router>
           </ContactState>

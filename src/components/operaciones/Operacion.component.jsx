@@ -1,26 +1,28 @@
 import React, { Fragment, useState }  from 'react'
 import Header               from '../layout/Header.component';
 import Sidebar              from '../layout/Sidebar.component';
-import { DataGrid }         from '@material-ui/data-grid';
+import { DataGrid }                                 from '@material-ui/data-grid';
 
-const Modelo = () => {
 
-    // ROWS DATA GRID 
+const Operacion = () => {
 
     let active;
     const [edit, setEdit] = useState(false);
 
-    const rowModelos = [
-        { id: 1, nombre: "STRABERRY BIKINNY",               tipo: "6032",       active: true},
-        { id: 2, nombre: "BOXER ALE",                       tipo: "4102",       active: true},
-        { id: 3, nombre: "TANGA 3037",                      tipo: "3037",       active: true},
-        { id: 4, nombre: "TANGA 3023",                      tipo: "3023",       active: false},
-        { id: 5, nombre: "BOXER TABA",                      tipo: "3367",       active: true},
+    const rowOperaciones = [
+        { id: 1, nombre: "SELLADO Y CONTADO	",              tipo: "MANUAL",     costo: "$0.5",      modelo: " 6032 - STRABERRY BIKINNY ",   active: true},
+        { id: 2, nombre: "DOBLADO Y EMBOLSADO",             tipo: "MANUAL",     costo: "$0.3",      modelo: " 3037 - TANGA ",               active: true},
+        { id: 3, nombre: "PEGADO CODIGO	",                  tipo: "MAQUINA",    costo: "$0.10",     modelo: " 6032 - STRABERRY BIKINNY ",   active: false},
+        { id: 4, nombre: "UNION ETIQUETA",                  tipo: "MANUAL",     costo: "$0.3",      modelo: " 6032 - STRABERRY BIKINNY ",   active: true},
+        { id: 5, nombre: "CORTE ETIQUETA",                  tipo: "MAQUINA",    costo: "$0.5",      modelo: " 3037 - TANGA ",               active: true},
+    
     ]
 
-    const columnsModelos = [
-        { field: 'nombre',              headerName: 'Nombre',             width: 250 },
-        { field: 'tipo',                headerName: 'Tipo',               width: 150 },
+    const columnsOperaciones = [
+        { field: 'nombre',            headerName: 'Nombre',             width: 210 },
+        { field: 'tipo',              headerName: 'Tipo',               width: 120 },
+        { field: 'costo',             headerName: 'Costo',               width: 100 },
+        { field: 'modelo',            headerName: 'Modelo',               width: 230 },
         {
           field                     : "",
           headerName                : "Editar",
@@ -60,9 +62,7 @@ const Modelo = () => {
     const clickReverse = () => {
         return edit;
     }
-    // ROWS DATA GRID 
-
-
+    
     return ( 
         <Fragment>
         <div className="contenedor-app">
@@ -71,13 +71,13 @@ const Modelo = () => {
                 <Header/>
                 <main>
                     <div className="contenedor-tareas">
-                        <h1>Modelos</h1>
-                    </div>
+                        <h1>Operaciones</h1>
+                    </div> 
                     <div>
-                        <div className="tableCenter" >
-                            <DataGrid rows={rowModelos} columns={columnsModelos} pageSize={15} />
-                        </div>
-                    </div>                    
+                            <div className="tableCenter" >
+                                <DataGrid rows={rowOperaciones} columns={columnsOperaciones} pageSize={15} />
+                            </div>
+                    </div>                  
                 </main>
             </div>
         </div>
@@ -85,4 +85,4 @@ const Modelo = () => {
      );
 }
  
-export default Modelo;
+export default Operacion;

@@ -19,10 +19,10 @@ const MenuItem = () => {
                     Usuarios 
                 </TitleMenuItem> 
             </Link>
-            <Link to={'/prendas'} >
+            <Link to={'/operaciones'} >
                 <TitleMenuItem> 
                     {"  "}
-                    Prendas 
+                    Operaciones 
                 </TitleMenuItem> 
             </Link>
             <Link to={'/cortes'} >
